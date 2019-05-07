@@ -219,6 +219,10 @@ passport.use(
                   if (err) {
                     if (err.name === "MongoError" && err.code === 11000) {
                       console.log("There was a duplicate key error" + err);
+                      User.findOne({email:newUser.email},function(err,user){
+                        if(err) return done(err);
+                        return done(null,false,"Email already exists");
+                      })
                     } else {
                       return done(err);
                     }
