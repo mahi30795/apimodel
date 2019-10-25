@@ -54,7 +54,7 @@ app.get('/',function(req,res){
   res.render('signup');
 });
 mongoose.Promise = global.Promise;
-// Connect to mongoose
+
 mongoose.set("useCreateIndex", true);
 mongoose
   .connect(env.common.mongodbLink, { useNewUrlParser: true })
